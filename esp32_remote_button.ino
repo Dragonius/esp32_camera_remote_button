@@ -1,6 +1,6 @@
 #include <BleKeyboard.h>
 
-BleKeyboard bleKeyboard("Camera-Remote", "Samsung", 100);
+BleKeyboard bleKeyboard("Furry-remote", "Flammever", 100);
 
 const int buttonPin = 4;
 bool buttonPressed = false;
@@ -13,7 +13,9 @@ void setup() {
   
   //Serial.println("Starting ESP32 Camera Trigger");
   //Serial.println("Waiting for BLE connection...");
-  bleKeyboard.begin();
+  bleKeyboard.end();   // Disconnect any existing BLE session
+  delay(1000);          // Small delay to let stack reset
+  bleKeyboard.begin(); // Start advertising
 }
 
 void loop() {
